@@ -8,6 +8,7 @@ import pe.edu.upc.clothingfashion.serviceinterfaces.ITexturaService;
 
 @RestController
 @RequestMapping("/texturas")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class TexturaController {
     @Autowired
     private ITexturaService tS;
