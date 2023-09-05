@@ -11,6 +11,7 @@ import pe.edu.upc.clothingfashion.serviceinterfaces.ITienda_OutfitService;
 
 @RestController
 @RequestMapping("/armarios_outfits")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class Armario_OutfitDTO {
     @Autowired
     private IArmario_OutfitService aoS;
