@@ -9,6 +9,7 @@ import pe.edu.upc.clothingfashion.serviceinterfaces.ITienda_OutfitService;
 
 @RestController
 @RequestMapping("/tiendas_outfits")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class Tienda_OutfitController {
     @Autowired
     private ITienda_OutfitService toS;
