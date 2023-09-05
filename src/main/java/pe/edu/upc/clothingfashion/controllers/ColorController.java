@@ -8,6 +8,7 @@ import pe.edu.upc.clothingfashion.serviceinterfaces.IColorService;
 
 @RestController
 @RequestMapping("/colores")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class ColorController {
     @Autowired
     private IColorService cS;
