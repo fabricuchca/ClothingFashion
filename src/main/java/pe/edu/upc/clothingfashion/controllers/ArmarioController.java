@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/armarios")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class ArmarioController {
     @Autowired
     private IArmarioService aS;
