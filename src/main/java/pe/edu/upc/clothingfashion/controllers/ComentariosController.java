@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/comentarios")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class ComentariosController {
     @Autowired
     private IComentarioService comS;
