@@ -8,6 +8,7 @@ import pe.edu.upc.clothingfashion.serviceinterfaces.ISuscripcionService;
 
 @RestController
 @RequestMapping("/suscripciones")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class SuscripcionController {
     @Autowired
     private ISuscripcionService sS;
