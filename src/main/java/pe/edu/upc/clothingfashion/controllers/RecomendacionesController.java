@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/recomendaciones")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class RecomendacionesController {
     @Autowired
     private IRecomendacionesService rS;
