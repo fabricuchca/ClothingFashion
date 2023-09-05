@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/outfits")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class OutfitController {
     @Autowired
     private IOutfirService oS;
