@@ -9,6 +9,7 @@ import pe.edu.upc.clothingfashion.entities.Tienda_Outfit;
 import pe.edu.upc.clothingfashion.serviceinterfaces.IArmario_OutfitService;
 import pe.edu.upc.clothingfashion.serviceinterfaces.ITienda_OutfitService;
 
+
 @RestController
 @RequestMapping("/armarios_outfits")
 @PreAuthorize("hasAuthority('ADMIN')")
