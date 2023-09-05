@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/marcas")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class MarcaController {
     @Autowired
     private IMarcaService mS;
