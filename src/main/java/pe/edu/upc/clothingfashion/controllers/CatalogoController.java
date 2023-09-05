@@ -9,6 +9,7 @@ import pe.edu.upc.clothingfashion.serviceinterfaces.ICatalogoService;
 
 @RestController
 @RequestMapping("/catalogos")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class CatalogoController {
     @Autowired
     private ICatalogoService catS;
