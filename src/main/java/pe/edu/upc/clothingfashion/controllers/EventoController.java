@@ -9,6 +9,7 @@ import pe.edu.upc.clothingfashion.serviceinterfaces.IEventoService;
 
 @RestController
 @RequestMapping("/eventos")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class EventoController {
     @Autowired
     private IEventoService eS;
