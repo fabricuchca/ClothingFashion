@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/tipoPrendas")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class TipoPrendaController {
     @Autowired
     private ITipoPrendaService tpS;
