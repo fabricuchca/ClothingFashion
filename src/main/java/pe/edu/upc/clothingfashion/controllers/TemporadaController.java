@@ -7,6 +7,7 @@ import pe.edu.upc.clothingfashion.entities.Temporada;
 import pe.edu.upc.clothingfashion.serviceinterfaces.ITemporadaService;
 @RestController
 @RequestMapping("/temporadas")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class TemporadaController {
         @Autowired
         private ITemporadaService temS;
