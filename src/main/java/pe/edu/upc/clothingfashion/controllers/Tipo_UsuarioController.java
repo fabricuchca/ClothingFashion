@@ -9,6 +9,7 @@ import pe.edu.upc.clothingfashion.serviceinterfaces.ITipo_UsuarioService;
 
 @RestController
 @RequestMapping("/tipos_usuarios")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class Tipo_UsuarioController {
     @Autowired
     private ITipo_UsuarioService tuS;
