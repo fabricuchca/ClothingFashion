@@ -24,4 +24,20 @@ public class SuscriptionController {
     {
         sS.delete(id);
     }
+
+    @GetMapping("/dates")
+    public List<SuscriptionUsersDTO>getUserIdByPaymentDate(){
+        List<String[]>countUserIdByPaymentDate=sS.getCountUserIdByPaymentDate();
+        List<SuscriptionUsersDTO>suscriptionUsersDTOList=new ArrayList<>();
+
+        for (String[] data:countUserIdByPaymentDate){
+            if(data.length>=2){
+                SuscriptionUsersDTO suscriptionUsersDTO=new SuscriptionUsersDTO();
+                suscriptionUsersDTO.setPaymentDate(LocalDate.parse(data[0]));
+                suscriptionUsersDTO.setQuantityUsers(Integer.parseInt(data[1]));
+                suscriptionUsersDTOList.add(suscriptionUsersDTO);
+            }
+        }
+        return suscriptionUsersDTOList;
+    }
 }
