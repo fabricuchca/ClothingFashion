@@ -51,4 +51,10 @@ public class ClothingServiceImplement implements IClothingService {
     public List<Clothing> findByEvent(int event) {
         return cloR.findByEvent(event);
     }
+
+    @Override
+    public List<Clothing> findByNameSeasonAndNameTypeClothing(String nameSeason, String nameTypeClothing) {
+        return cloR.findByNameSeasonAndNameTypeClothing(nameSeason,nameTypeClothing);
+    }
+
 }
