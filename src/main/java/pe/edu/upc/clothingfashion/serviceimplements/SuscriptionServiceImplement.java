@@ -17,5 +17,9 @@ public class SuscriptionServiceImplement implements ISuscriptionService {
     @Override
     public void delete(int idSuscription) {
         sR.deleteById(idSuscription);
+
+    @Override
+    public List<String[]> getCountUserIdByPaymentDate() {
+        return sR.UserDate();
     }
 }
