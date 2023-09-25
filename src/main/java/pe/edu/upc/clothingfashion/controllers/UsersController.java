@@ -56,7 +56,7 @@ public class UsersController {
 
     @GetMapping("/armarios")
     @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
-    public List<UsersClaseDTO> getPartnerBycLUB() {
+    public List<UsersClaseDTO> getUsuariomasArmarios() {
         List<String[]> countClosetByUser = uS.getCountClosetByUser();
         List<UsersClaseDTO> closetUsersDTOList = new ArrayList<>();
 
