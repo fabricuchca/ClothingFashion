@@ -1,9 +1,9 @@
 package pe.edu.upc.clothingfashion.dtos;
 public class ColorDTO {
     private  int idColor;
-    private String nombreColor;
-    private String descripcion;
-    private String tipoColor;
+    private String nameColor;
+    private String description;
+    private String typeColor;
 
     public int getIdColor() {
         return idColor;
@@ -13,27 +13,27 @@ public class ColorDTO {
         this.idColor = idColor;
     }
 
-    public String getNombreColor() {
-        return nombreColor;
+    public String getNameColor() {
+        return nameColor;
     }
 
-    public void setNombreColor(String nombreColor) {
-        this.nombreColor = nombreColor;
+    public void setNameColor(String nameColor) {
+        this.nameColor = nameColor;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getTipoColor() {
-        return tipoColor;
+    public String getTypeColor() {
+        return typeColor;
     }
 
-    public void setTipoColor(String tipoColor) {
-        this.tipoColor = tipoColor;
+    public void setTypeColor(String typeColor) {
+        this.typeColor = typeColor;
     }
 }

@@ -1,6 +1,6 @@
 package pe.edu.upc.clothingfashion.dtos;
 
-import pe.edu.upc.clothingfashion.entities.Catalogo;
+import pe.edu.upc.clothingfashion.entities.Catalog;
 
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
@@ -9,11 +9,11 @@ import java.time.LocalDate;
 
 public class OutfitDTO {
     private int idOutfit;
-    private String nombreOutfit;
-    private String estiloOutfit;
-    private int cantidadPrendas;
-    private LocalDate fechaCreacion;
-    private Catalogo catalogo;
+    private String nameOutfit;
+    private String styleOutfit;
+    private int clothesNumber;
+    private LocalDate creationDate;
+    private Catalog catalog;
 
     public int getIdOutfit() {
         return idOutfit;
@@ -23,43 +23,43 @@ public class OutfitDTO {
         this.idOutfit = idOutfit;
     }
 
-    public String getNombreOutfit() {
-        return nombreOutfit;
+    public String getNameOutfit() {
+        return nameOutfit;
     }
 
-    public void setNombreOutfit(String nombreOutfit) {
-        this.nombreOutfit = nombreOutfit;
+    public void setNameOutfit(String nameOutfit) {
+        this.nameOutfit = nameOutfit;
     }
 
-    public String getEstiloOutfit() {
-        return estiloOutfit;
+    public String getstyleOutfit() {
+        return styleOutfit;
     }
 
-    public void setEstiloOutfit(String estiloOutfit) {
-        this.estiloOutfit = estiloOutfit;
+    public void setstyleOutfit(String styleOutfit) {
+        this.styleOutfit = styleOutfit;
     }
 
-    public int getCantidadPrendas() {
-        return cantidadPrendas;
+    public int getClothesNumber() {
+        return clothesNumber;
     }
 
-    public void setCantidadPrendas(int cantidadPrendas) {
-        this.cantidadPrendas = cantidadPrendas;
+    public void setClothesNumber(int clothesNumber) {
+        this.clothesNumber = clothesNumber;
     }
 
-    public LocalDate getFechaCreacion() {
-        return fechaCreacion;
+    public LocalDate getCreationDate() {
+        return creationDate;
     }
 
-    public void setFechaCreacion(LocalDate fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 
-    public Catalogo getCatalogo() {
-        return catalogo;
+    public Catalog getCatalog() {
+        return catalog;
     }
 
-    public void setCatalogo(Catalogo catalogo) {
-        this.catalogo = catalogo;
+    public void setCatalog(Catalog catalog) {
+        this.catalog = catalog;
     }
 }

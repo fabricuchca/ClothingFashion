@@ -1,6 +1,6 @@
 package pe.edu.upc.clothingfashion.dtos;
 
-import pe.edu.upc.clothingfashion.entities.Armario;
+import pe.edu.upc.clothingfashion.entities.Closet;
 
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
@@ -9,14 +9,14 @@ import java.time.LocalDate;
 
 public class UsuarioDTO {
     private int idUsuario;
-    private String nombreUsuario;
-    private String apellidoUsuario;
-    private String direccionUsuario;
-    private String tarjetaUsuario;
-    private String telefonoUsuario;
-    private String correo;
-    private LocalDate fechaNacimiento;
+    private String nameUsuario;
+    private String lastNameUsuario;
+    private String addressUsuario;
+    private String cardUsuario;
+    private String telephoneUsuario;
+    private String mail;
+    private LocalDate birthDate;
     private String usuarioTag;
-    private String contraseña;
-    private Armario armario;
+    private String passwordUsuario;
+    private Closet closet;
 }
