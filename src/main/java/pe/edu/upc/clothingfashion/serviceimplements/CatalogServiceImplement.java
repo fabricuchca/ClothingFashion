@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.clothingfashion.entities.Catalog;
 import pe.edu.upc.clothingfashion.repositories.ICatalogRepository;
 import pe.edu.upc.clothingfashion.serviceinterfaces.ICatalogService;
+
+import java.util.List;
+
 @Service
 public class CatalogServiceImplement implements ICatalogService {
     @Autowired
@@ -17,5 +20,10 @@ public class CatalogServiceImplement implements ICatalogService {
     @Override
     public void delete(int idCatalog) {
         catR.deleteById(idCatalog);
+    }
+
+    @Override
+    public List<String[]> getCountCatalogRecommendations() {
+        return catR.CatalogRecommendations();
     }
 }
