@@ -25,7 +25,6 @@ public class RoleController {
         rS.insert(r);
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public void eliminar(@PathVariable("id") Long id)
     {
         rS.delete(id);

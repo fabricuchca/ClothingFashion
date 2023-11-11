@@ -27,27 +27,23 @@ public class UsersController {
         uS.insert(u);
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public void eliminar(@PathVariable("id") Long id)
     {
         uS.delete(id);
     }
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
     public UsersDTO listarId(@PathVariable("id")Long id){
         ModelMapper m=new ModelMapper();
         UsersDTO dto=m.map(uS.listId(id),UsersDTO.class);
         return dto;
     }
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public void modificar(@RequestBody UsersDTO dto) {
         ModelMapper m = new ModelMapper();
         Users u=m.map(dto,Users.class);
         uS.insert(u);
     }
     @PostMapping("/buscar")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public List<UsersDTO> buscar(@RequestParam String nameUser, String lastNameUser){
 
         return uS.findByNameUserAndLastNameUser(nameUser, lastNameUser).stream().map(x->{
@@ -57,7 +53,6 @@ public class UsersController {
     }
 
     @GetMapping("/armarios")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public List<UsersClaseDTO> getUsuariomasArmarios() {
         List<String[]> countClosetByUser = uS.getCountClosetByUser();
         List<UsersClaseDTO> closetUsersDTOList = new ArrayList<>();
