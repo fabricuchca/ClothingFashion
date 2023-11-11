@@ -1,5 +1,6 @@
 package pe.edu.upc.clothingfashion.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;

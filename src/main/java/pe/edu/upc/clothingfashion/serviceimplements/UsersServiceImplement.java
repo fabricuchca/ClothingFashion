@@ -14,18 +14,21 @@ public class UsersServiceImplement implements IUsersService{
     @Autowired
     private UserRepository uR;
     @Override
-    public void insert(Users users) {
-        uR.save(users);
+    public Integer insert(Users users) {
+        int rpta = uR.buscarUsername(users.getUsername());
+        if (rpta == 0) {
+            uR.save(users);
+        }
+        return rpta;
+    }
+    @Override
+    public void delete(int idUser) {
+        uR.deleteById(idUser);
     }
 
     @Override
-    public void delete(Long id) {
-        uR.deleteById(id);
-    }
-
-    @Override
-    public Users listId(Long id) {
-        return uR.findById(id).orElse(new Users());
+    public Users listId(int idUser) {
+        return uR.findById(idUser).orElse(new Users());
     }
 
     @Override
@@ -34,7 +37,7 @@ public class UsersServiceImplement implements IUsersService{
     }
     @Override
     public List<String[]> getCountClosetByUser() {
-        return uR.UserCloset();
+        return uR.getCountClosetByUser();
     }
     @Override
     public List<Users> list() {

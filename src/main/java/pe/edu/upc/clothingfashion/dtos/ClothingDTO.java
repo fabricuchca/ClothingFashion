@@ -12,7 +12,7 @@ public class ClothingDTO {
     private Store store;
     private Closet closet;
     private Brand brand;
-    private Type_Clothing type_clothing;
+    private Type_Clothing typeClothing;
 
     public int getIdClothing() {
         return idClothing;
@@ -86,11 +86,11 @@ public class ClothingDTO {
         this.brand = brand;
     }
 
-    public Type_Clothing getType_cloth() {
-        return type_clothing;
+    public Type_Clothing getTypeClothing() {
+        return typeClothing;
     }
 
-    public void setType_cloth(Type_Clothing type_cloth) {
-        this.type_clothing = type_cloth;
+    public void setTypeClothing(Type_Clothing typeClothing) {
+        this.typeClothing = typeClothing;
     }
 }

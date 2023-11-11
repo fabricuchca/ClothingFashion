@@ -1,14 +1,21 @@
 package pe.edu.upc.clothingfashion.dtos;
 
 import pe.edu.upc.clothingfashion.entities.Outfit;
+import pe.edu.upc.clothingfashion.entities.Users;
+
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 public class CommentsDTO {
     private int idComments;
+    private String titleComment;
     private String descriptionComment;
     private LocalDate dateComment;
     private int score;
     private Outfit outfit;
+    private Users users;
 
     public int getIdComments() {
         return idComments;
@@ -48,5 +55,21 @@ public class CommentsDTO {
 
     public void setOutfit(Outfit outfit) {
         this.outfit = outfit;
+    }
+
+    public String getTitleComment() {
+        return titleComment;
+    }
+
+    public void setTitleComment(String titleComment) {
+        this.titleComment = titleComment;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

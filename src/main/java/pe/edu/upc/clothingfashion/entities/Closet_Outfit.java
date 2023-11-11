@@ -11,10 +11,10 @@ public class Closet_Outfit {
     private int idCloset_Outfit;
     @Column(name = "additionDate", nullable = false)
     private LocalDate additionDate;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "idOutfit")
     private Outfit outfit;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "idCloset")
     private Closet closet;
 

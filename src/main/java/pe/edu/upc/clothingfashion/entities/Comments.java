@@ -9,6 +9,8 @@ public class Comments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idComments;
+    @Column(name = "titleComment",nullable = false,length = 500)
+    private String titleComment;
     @Column(name = "descriptionComment",nullable = false,length = 500)
     private String descriptionComment;
     @Column(name = "dateComment",nullable = false)
@@ -18,16 +20,21 @@ public class Comments {
     @ManyToOne
     @JoinColumn(name = "idOutfit")
     private Outfit outfit;
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    private Users users;
 
     public Comments() {
     }
 
-    public Comments(int idComments, String descriptionComment, LocalDate dateComment, int score, Outfit outfit) {
+    public Comments(int idComments, String titleComment, String descriptionComment, LocalDate dateComment, int score, Outfit outfit, Users users) {
         this.idComments = idComments;
+        this.titleComment = titleComment;
         this.descriptionComment = descriptionComment;
         this.dateComment = dateComment;
         this.score = score;
         this.outfit = outfit;
+        this.users = users;
     }
 
     public int getIdComments() {
@@ -68,5 +75,21 @@ public class Comments {
 
     public void setOutfit(Outfit outfit) {
         this.outfit = outfit;
+    }
+
+    public String getTitleComment() {
+        return titleComment;
+    }
+
+    public void setTitleComment(String titleComment) {
+        this.titleComment = titleComment;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

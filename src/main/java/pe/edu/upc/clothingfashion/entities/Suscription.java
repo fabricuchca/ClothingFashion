@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Suscipcion")
+@Table(name = "Susciption")
 public class Suscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Suscription {
     @Column(name = "startSuscription",nullable = false)
     private LocalDate startSuscription;
     @ManyToOne
-    @JoinColumn(name = "idUsers")
+    @JoinColumn(name = "idUser")
     private Users users;
 
     public Suscription() {

@@ -1,34 +1,45 @@
 package pe.edu.upc.clothingfashion.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "Recommendations")
 public class Recommendations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRecommendations;
     @Column(name = "title",nullable = false,length = 50)
     private String title;
-    @Column(name = "author",nullable = false,length = 40)
-    private String author;
     @Column(name = "calification",nullable = false,length = 1)
     private int calification;
-    @Column(name = "addicionalLink",nullable = false,length = 1000)
+    @Column(name = "addicionalLink",length = 1000)
     private String addicionalLink;
     @Column(name = "categoryTag",nullable = false,length = 50)
     private String categoryTag;
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    private Users users;
 
     public Recommendations() {
     }
 
-    public Recommendations(int idRecommendations, String title, String author, int calification, String addicionalLink, String categoryTag) {
+    public Recommendations(int idRecommendations, String title, int calification, String addicionalLink, String categoryTag, Users users) {
         this.idRecommendations = idRecommendations;
         this.title = title;
-        this.author = author;
         this.calification = calification;
         this.addicionalLink = addicionalLink;
         this.categoryTag = categoryTag;
+        this.users = users;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     public int getIdRecommendations() {
@@ -45,14 +56,6 @@ public class Recommendations {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public int getCalification() {
