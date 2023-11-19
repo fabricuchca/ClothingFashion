@@ -15,6 +15,6 @@ public interface IClothingService {
     List<Clothing> findByBrand(int brand);
     List<Clothing> findByEvent(int event);
     List<Clothing> findByTypeClothing(int typeClothing);
-
+    List<String[]> getCountClothingBySeason();
     List<Clothing>findByNameSeasonAndNameTypeClothing(String nameSeason,String nameTypeClothing);
 }

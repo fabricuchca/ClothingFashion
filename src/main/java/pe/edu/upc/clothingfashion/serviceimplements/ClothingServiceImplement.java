@@ -63,7 +63,10 @@ public class ClothingServiceImplement implements IClothingService {
         return cloR.findByTypeClothing(typeClothing);
     }
 
-
+    @Override
+    public List<String[]> getCountClothingBySeason() {
+        return cloR.getCountClothingBySeason();
+    }
     @Override
     public List<Clothing> findByNameSeasonAndNameTypeClothing(String nameSeason, String nameTypeClothing) {
         return cloR.findByNameSeasonAndNameTypeClothing(nameSeason,nameTypeClothing);

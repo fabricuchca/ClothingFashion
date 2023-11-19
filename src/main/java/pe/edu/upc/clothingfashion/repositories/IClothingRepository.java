@@ -20,5 +20,10 @@ public interface IClothingRepository extends JpaRepository<Clothing, Integer> {
     List<Clothing> findByBrand(int brand);
     List<Clothing> findByEvent(int event);
     List<Clothing> findByTypeClothing(int typeClothing);
-
+    @Query(value = "SELECT s.name_season, COUNT(c.id_season)" +
+            "            FROM Season s inner join Clothing c" +
+            "            ON s.id_season = c.id_season" +
+            "            GROUP BY s.name_season" +
+            "            order BY COUNT(c.id_season)", nativeQuery = true)
+    List<String[]> getCountClothingBySeason();
 }
