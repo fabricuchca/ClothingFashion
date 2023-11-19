@@ -2,12 +2,12 @@ package pe.edu.upc.clothingfashion.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.clothingfashion.dtos.BrandDTO;
 import pe.edu.upc.clothingfashion.dtos.ClothingDTO;
 import pe.edu.upc.clothingfashion.entities.Clothing;
 import pe.edu.upc.clothingfashion.serviceinterfaces.IClothingService;
+import pe.edu.upc.clothingfashion.dtos.ClothingSeasonDTO;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -95,5 +95,22 @@ public class ClothingController {
         ModelMapper m=new ModelMapper();
         ClothingDTO dto=m.map(clS.listId(id),ClothingDTO.class);
         return dto;
+    }
+
+    @GetMapping("/prendas")
+    public List<ClothingSeasonDTO> getCountClothingBySeason() {
+        List<String[]> countClothingBySeason = clS.getCountClothingBySeason();
+        List<ClothingSeasonDTO> clothingSeasonDTOList = new ArrayList<>();
+
+        for (String[] data : countClothingBySeason) {
+            if (data.length >= 2) {
+                ClothingSeasonDTO clothingSeasonDTO = new ClothingSeasonDTO();
+                clothingSeasonDTO.setNameSeason(data[0]);
+                clothingSeasonDTO.setQuantityClothing(Integer.parseInt(data[1]));
+                clothingSeasonDTOList.add(clothingSeasonDTO);
+            }
+        }
+
+        return clothingSeasonDTOList;
     }
 }
