@@ -1,5 +1,6 @@
 package pe.edu.upc.clothingfashion.serviceimplements;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.clothingfashion.entities.Event;
 import pe.edu.upc.clothingfashion.entities.Recommendations;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Service
 public class RecommendationsImplement implements IRecommendationsService {
+    @Autowired
     private IRecommendationsRepository rR;
     @Override
     public void insert(Recommendations recommendations) {

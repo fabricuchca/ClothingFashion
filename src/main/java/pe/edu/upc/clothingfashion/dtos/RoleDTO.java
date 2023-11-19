@@ -6,16 +6,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 public class RoleDTO {
-    private Long id;
+    private Long idRole;
     private String rol;
     private Users user;
 
-    public Long getId() {
-        return id;
+    public Long getIdRole() {
+        return idRole;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdRole(Long idRole) {
+        this.idRole = idRole;
     }
 
     public String getRol() {

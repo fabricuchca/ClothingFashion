@@ -19,8 +19,8 @@ public class RoleServiceImplement implements IRoleService {
     }
 
     @Override
-    public void delete(Long id) {
-        rR.deleteById(id);
+    public void delete(Long idRole) {
+        rR.deleteById(idRole);
     }
     @Override
     public List<Role> list() {
@@ -28,7 +28,7 @@ public class RoleServiceImplement implements IRoleService {
     }
 
     @Override
-    public Role listId(Long id) {
-        return rR.findById(id).orElse(new Role());
+    public Role listId(Long idRole) {
+        return rR.findById(idRole).orElse(new Role());
     }
 }

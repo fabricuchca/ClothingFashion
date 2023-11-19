@@ -1,5 +1,7 @@
 package pe.edu.upc.clothingfashion.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -7,18 +9,18 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class Users implements Serializable {
+public class Users{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int idUser;
 	@Column(name = "nameUser",nullable = false,length = 40)
 	private String nameUser;
 	@Column(name = "lastNameUser",nullable = false,length = 40)
 	private String lastNameUser;
-	@Column(name = "addressUser",nullable = false,length = 80)
-	private String addressUser;
-	@Column(name = "cardUser",nullable = false,length = 16)
+	@Column(name = "adressUser",length = 80)
+	private String adressUser;
+	@Column(name = "cardUser",length = 16)
 	private String cardUser;
 	@Column(name = "telephoneUser",nullable = false,length = 9)
 	private String telephoneUser;
@@ -32,17 +34,18 @@ public class Users implements Serializable {
 	private String password;
 	private Boolean enabled;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinColumn(name = "user_id")
 	private List<Role> roles;
 
 	public Users() {
 	}
 
-	public Users(Long id, String nameUser, String lastNameUser, String addressUser, String cardUser, String telephoneUser, String mail, LocalDate birthDate, String username, String password, Boolean enabled, List<Role> roles) {
-		this.id = id;
+	public Users(int idUser, String nameUser, String lastNameUser, String adressUser, String cardUser, String telephoneUser, String mail, LocalDate birthDate, String username, String password, Boolean enabled, List<Role> roles) {
+		this.idUser = idUser;
 		this.nameUser = nameUser;
 		this.lastNameUser = lastNameUser;
-		this.addressUser = addressUser;
+		this.adressUser = adressUser;
 		this.cardUser = cardUser;
 		this.telephoneUser = telephoneUser;
 		this.mail = mail;
@@ -53,12 +56,12 @@ public class Users implements Serializable {
 		this.roles = roles;
 	}
 
-	public Long getId() {
-		return id;
+	public int getIdUser() {
+		return idUser;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 
 	public String getNameUser() {
@@ -77,12 +80,12 @@ public class Users implements Serializable {
 		this.lastNameUser = lastNameUser;
 	}
 
-	public String getAddressUser() {
-		return addressUser;
+	public String getadressUser() {
+		return adressUser;
 	}
 
-	public void setAddressUser(String addressUser) {
-		this.addressUser = addressUser;
+	public void setadressUser(String adressUser) {
+		this.adressUser = adressUser;
 	}
 
 	public String getCardUser() {

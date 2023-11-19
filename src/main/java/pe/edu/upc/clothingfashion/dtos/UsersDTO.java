@@ -4,10 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class UsersDTO {
-    private Long id;
+    private int idUser;
     private String nameUser;
     private String lastNameUser;
-    private String addressUser;
+    private String adressUser;
     private String cardUser;
     private String telephoneUser;
     private String mail;
@@ -16,14 +16,6 @@ public class UsersDTO {
     private String password;
     private Boolean enabled;
     private List<Role> roles;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNameUser() {
         return nameUser;
@@ -41,12 +33,12 @@ public class UsersDTO {
         this.lastNameUser = lastNameUser;
     }
 
-    public String getAddressUser() {
-        return addressUser;
+    public String getadressUser() {
+        return adressUser;
     }
 
-    public void setAddressUser(String addressUser) {
-        this.addressUser = addressUser;
+    public void setadressUser(String adressUser) {
+        this.adressUser = adressUser;
     }
 
     public String getCardUser() {
@@ -107,6 +99,14 @@ public class UsersDTO {
 
     public List<Role> getRoles() {
         return roles;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public void setRoles(List<Role> roles) {

@@ -12,8 +12,8 @@ public class Closet {
     private String styleCloset;
     @Column(name = "nameCloset",nullable = false,length = 40)
     private String nameCloset;
-    @ManyToOne
-    @JoinColumn(name = "idUsers")
+    @ManyToOne//(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "idUser")
     private Users users;
 
     public Closet() {

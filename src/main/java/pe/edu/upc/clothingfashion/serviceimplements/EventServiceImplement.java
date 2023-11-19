@@ -1,7 +1,7 @@
 package pe.edu.upc.clothingfashion.serviceimplements;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.clothingfashion.entities.Brand;
 import pe.edu.upc.clothingfashion.entities.Event;
 import pe.edu.upc.clothingfashion.repositories.IEventRepository;
 import pe.edu.upc.clothingfashion.serviceinterfaces.IEventService;
@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class EventServiceImplement implements IEventService {
+    @Autowired
     private IEventRepository eR;
     @Override
     public void insert(Event event) {

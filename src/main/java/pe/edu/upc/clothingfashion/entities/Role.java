@@ -5,14 +5,14 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "roles", uniqueConstraints = { @UniqueConstraint(columnNames = { "user_id", "rol" }) })
-public class Role implements Serializable {
+public class Role{
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
+	private Long idRole;
+	@Column(name = "rol",length = 50, nullable = false)
 	private String rol;
 	
 	@ManyToOne
@@ -20,12 +20,6 @@ public class Role implements Serializable {
 	private Users user;
 
 	public Role() {
-	}
-
-	public Role(Long id, String rol, Users user) {
-		this.id = id;
-		this.rol = rol;
-		this.user = user;
 	}
 //GETTERS AND SETTERES
 
@@ -37,20 +31,24 @@ public class Role implements Serializable {
 		this.user = user;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getRol() {
 		return rol;
 	}
-
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
 
+	public Long getIdRole() {
+		return idRole;
+	}
+
+	public void setIdRole(Long idRole) {
+		this.idRole = idRole;
+	}
+
+	public Role(Long idRole, String rol, Users user) {
+		this.idRole = idRole;
+		this.rol = rol;
+		this.user = user;
+	}
 }

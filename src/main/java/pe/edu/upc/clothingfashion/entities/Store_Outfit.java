@@ -11,10 +11,10 @@ public class Store_Outfit {
     private int idStore_Outfit;
     @Column(name = "availabilityDate", nullable = false)
     private LocalDate availabilityDate;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "idStore")
     private Store store;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "idOutfit")
     private Outfit outfit;
 

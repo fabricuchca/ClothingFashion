@@ -1,14 +1,18 @@
 package pe.edu.upc.clothingfashion.dtos;
 
+import pe.edu.upc.clothingfashion.entities.Users;
+
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 public class RecommendationsDTO {
     private int idRecommendations;
     private String title;
-    private String author;
     private int calification;
     private String addicionalLink;
     private String categoryTag;
+    private Users users;
 
     public int getIdRecommendations() {
         return idRecommendations;
@@ -24,14 +28,6 @@ public class RecommendationsDTO {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public int getCalification() {
@@ -56,5 +52,13 @@ public class RecommendationsDTO {
 
     public void setCategoryTag(String categoryTag) {
         this.categoryTag = categoryTag;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

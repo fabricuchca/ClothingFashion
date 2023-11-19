@@ -19,5 +19,6 @@ public interface IClothingRepository extends JpaRepository<Clothing, Integer> {
     List<Clothing> findByTexture(int texture);
     List<Clothing> findByBrand(int brand);
     List<Clothing> findByEvent(int event);
+    List<Clothing> findByTypeClothing(int typeClothing);
 
 }

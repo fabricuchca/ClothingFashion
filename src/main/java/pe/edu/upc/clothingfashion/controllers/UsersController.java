@@ -3,7 +3,11 @@ package pe.edu.upc.clothingfashion.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import pe.edu.upc.clothingfashion.dtos.ClosetDTO;
 import pe.edu.upc.clothingfashion.dtos.UsersDTO;
 import pe.edu.upc.clothingfashion.dtos.UsersClaseDTO;
@@ -11,6 +15,7 @@ import pe.edu.upc.clothingfashion.entities.Closet;
 import pe.edu.upc.clothingfashion.entities.Users;
 import pe.edu.upc.clothingfashion.serviceinterfaces.IUsersService;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,6 +25,8 @@ import java.util.stream.Collectors;
 public class UsersController {
     @Autowired
     private IUsersService uS;
+    @Autowired
+    private PasswordEncoder bcrypt;
     @PostMapping
     public void registrar(@RequestBody UsersDTO dto){
         ModelMapper m=new ModelMapper();
@@ -27,14 +34,14 @@ public class UsersController {
         uS.insert(u);
     }
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Long id)
+    public void eliminar(@PathVariable("id") int idUser)
     {
-        uS.delete(id);
+        uS.delete(idUser);
     }
     @GetMapping("/{id}")
-    public UsersDTO listarId(@PathVariable("id")Long id){
+    public UsersDTO listarId(@PathVariable("id")int idUser){
         ModelMapper m=new ModelMapper();
-        UsersDTO dto=m.map(uS.listId(id),UsersDTO.class);
+        UsersDTO dto=m.map(uS.listId(idUser),UsersDTO.class);
         return dto;
     }
     @PutMapping
@@ -53,7 +60,7 @@ public class UsersController {
     }
 
     @GetMapping("/armarios")
-    public List<UsersClaseDTO> getUsuariomasArmarios() {
+    public List<UsersClaseDTO> getCountClosetByUser() {
         List<String[]> countClosetByUser = uS.getCountClosetByUser();
         List<UsersClaseDTO> closetUsersDTOList = new ArrayList<>();
 
@@ -74,5 +81,36 @@ public class UsersController {
             ModelMapper m=new ModelMapper();
             return m.map(x,UsersDTO.class);
         }).collect(Collectors.toList());
+    }
+    /*@GetMapping("/list")
+    public String listUser(Model model) {
+        try {
+            model.addAttribute("user", new Users());
+            model.addAttribute("listaUsuarios", uS.list());
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+        }
+        return "usersecurity/listUser";
+    }*/
+    @PostMapping("/save")
+    public String saveUser(@Valid Users user, BindingResult result, Model model, SessionStatus status)
+            throws Exception {
+        if (result.hasErrors()) {
+            return "usersecurity/user";
+        } else {
+            String bcryptPassword = bcrypt.encode(user.getPassword());
+            user.setPassword(bcryptPassword);
+            int rpta = uS.insert(user);
+            if (rpta > 0) {
+                model.addAttribute("mensaje", "Ya existe");
+                return "usersecurity/user";
+            } else {
+                model.addAttribute("mensaje", "Se guardó correctamente");
+                status.setComplete();
+            }
+        }
+        model.addAttribute("listaUsuarios", uS.list());
+
+        return "usersecurity/listUser";
     }
 }

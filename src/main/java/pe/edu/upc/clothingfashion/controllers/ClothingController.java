@@ -81,6 +81,14 @@ public class ClothingController {
             return m.map(x,ClothingDTO.class);
         }).collect(Collectors.toList());
     }
+    @PostMapping("/buscarTipoPrenda")
+    public List<ClothingDTO> buscarTipoPrenda(@RequestParam int typeClothing){
+
+        return clS.findByTypeClothing(typeClothing).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,ClothingDTO.class);
+        }).collect(Collectors.toList());
+    }
 
     @GetMapping("/{id}")
     public ClothingDTO listarId(@PathVariable("id")Integer id){
