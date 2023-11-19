@@ -15,8 +15,8 @@ public class Comments {
     private String descriptionComment;
     @Column(name = "dateComment",nullable = false)
     private LocalDate dateComment;
-    @Column(name = "score",nullable = false,length = 1)
-    private int score;
+    @Column(name = "score",nullable = false)
+    private String score;
     @ManyToOne
     @JoinColumn(name = "idOutfit")
     private Outfit outfit;
@@ -27,7 +27,7 @@ public class Comments {
     public Comments() {
     }
 
-    public Comments(int idComments, String titleComment, String descriptionComment, LocalDate dateComment, int score, Outfit outfit, Users users) {
+    public Comments(int idComments, String titleComment, String descriptionComment, LocalDate dateComment, String score, Outfit outfit, Users users) {
         this.idComments = idComments;
         this.titleComment = titleComment;
         this.descriptionComment = descriptionComment;
@@ -61,11 +61,11 @@ public class Comments {
         this.dateComment = dateComment;
     }
 
-    public int getScore() {
+    public String getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(String score) {
         this.score = score;
     }
 

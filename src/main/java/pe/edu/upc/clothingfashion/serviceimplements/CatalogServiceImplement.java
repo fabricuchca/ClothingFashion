@@ -7,6 +7,7 @@ import pe.edu.upc.clothingfashion.entities.Catalog;
 import pe.edu.upc.clothingfashion.repositories.ICatalogRepository;
 import pe.edu.upc.clothingfashion.serviceinterfaces.ICatalogService;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
@@ -35,5 +36,12 @@ public class CatalogServiceImplement implements ICatalogService {
     @Override
     public Catalog listId(int idCatalog) {
         return catR.findById(idCatalog).orElse(new Catalog());
+    }
+
+    @PostConstruct
+    public void datosCat(){
+        Catalog catalog = new Catalog();
+        catalog.setIdCatalog(1);
+        catR.save(catalog);
     }
 }

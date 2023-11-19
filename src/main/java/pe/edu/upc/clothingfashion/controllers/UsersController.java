@@ -58,7 +58,16 @@ public class UsersController {
             return m.map(x,UsersDTO.class);
         }).collect(Collectors.toList());
     }
-
+    @GetMapping("/list")
+    public String listUser(Model model) {
+        try {
+            model.addAttribute("user", new Users());
+            model.addAttribute("listaUsuarios", uS.list());
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+        }
+        return "usersecurity/listUser";
+    }
     @GetMapping("/armarios")
     public List<UsersClaseDTO> getCountClosetByUser() {
         List<String[]> countClosetByUser = uS.getCountClosetByUser();
@@ -82,16 +91,6 @@ public class UsersController {
             return m.map(x,UsersDTO.class);
         }).collect(Collectors.toList());
     }
-    /*@GetMapping("/list")
-    public String listUser(Model model) {
-        try {
-            model.addAttribute("user", new Users());
-            model.addAttribute("listaUsuarios", uS.list());
-        } catch (Exception e) {
-            model.addAttribute("error", e.getMessage());
-        }
-        return "usersecurity/listUser";
-    }*/
     @PostMapping("/save")
     public String saveUser(@Valid Users user, BindingResult result, Model model, SessionStatus status)
             throws Exception {

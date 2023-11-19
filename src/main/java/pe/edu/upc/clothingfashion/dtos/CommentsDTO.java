@@ -13,7 +13,7 @@ public class CommentsDTO {
     private String titleComment;
     private String descriptionComment;
     private LocalDate dateComment;
-    private int score;
+    private String score;
     private Outfit outfit;
     private Users users;
 
@@ -41,11 +41,11 @@ public class CommentsDTO {
         this.dateComment = dateComment;
     }
 
-    public int getScore() {
+    public String getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(String score) {
         this.score = score;
     }
 

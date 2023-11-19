@@ -1,6 +1,7 @@
 package pe.edu.upc.clothingfashion.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.clothingfashion.entities.Event;
 import pe.edu.upc.clothingfashion.entities.Users;
@@ -13,8 +14,12 @@ import java.util.List;
 public class UsersServiceImplement implements IUsersService{
     @Autowired
     private UserRepository uR;
+    @Autowired
+    private PasswordEncoder pE;
     @Override
     public Integer insert(Users users) {
+        String newpassword = pE.encode(users.getPassword());
+        users.setPassword(newpassword);
         int rpta = uR.buscarUsername(users.getUsername());
         if (rpta == 0) {
             uR.save(users);

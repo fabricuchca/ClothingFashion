@@ -69,4 +69,6 @@ public class CatalogController {
         Catalog a=m.map(dto,Catalog.class);
         catS.insert(a);
     }
+
+
 }

@@ -12,8 +12,8 @@ public class Recommendations {
     private int idRecommendations;
     @Column(name = "title",nullable = false,length = 50)
     private String title;
-    @Column(name = "calification",nullable = false,length = 1)
-    private int calification;
+    @Column(name = "calification",nullable = false)
+    private String calification;
     @Column(name = "addicionalLink",length = 1000)
     private String addicionalLink;
     @Column(name = "categoryTag",nullable = false,length = 50)
@@ -22,16 +22,24 @@ public class Recommendations {
     @JoinColumn(name = "idUser")
     private Users users;
 
-    public Recommendations() {
-    }
-
-    public Recommendations(int idRecommendations, String title, int calification, String addicionalLink, String categoryTag, Users users) {
+    public Recommendations(int idRecommendations, String title, String calification, String addicionalLink, String categoryTag, Users users) {
         this.idRecommendations = idRecommendations;
         this.title = title;
         this.calification = calification;
         this.addicionalLink = addicionalLink;
         this.categoryTag = categoryTag;
         this.users = users;
+    }
+
+    public Recommendations() {
+    }
+
+    public String getCalification() {
+        return calification;
+    }
+
+    public void setCalification(String calification) {
+        this.calification = calification;
     }
 
     public Users getUsers() {
@@ -58,13 +66,6 @@ public class Recommendations {
         this.title = title;
     }
 
-    public int getCalification() {
-        return calification;
-    }
-
-    public void setCalification(int calification) {
-        this.calification = calification;
-    }
 
     public String getAddicionalLink() {
         return addicionalLink;

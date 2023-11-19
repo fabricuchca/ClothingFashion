@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 public class RecommendationsDTO {
     private int idRecommendations;
     private String title;
-    private int calification;
+    private String calification;
     private String addicionalLink;
     private String categoryTag;
     private Users users;
@@ -30,11 +30,11 @@ public class RecommendationsDTO {
         this.title = title;
     }
 
-    public int getCalification() {
+    public String getCalification() {
         return calification;
     }
 
-    public void setCalification(int calification) {
+    public void setCalification(String calification) {
         this.calification = calification;
     }
 
