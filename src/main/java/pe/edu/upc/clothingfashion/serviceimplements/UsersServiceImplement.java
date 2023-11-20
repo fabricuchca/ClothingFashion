@@ -55,7 +55,6 @@ public class UsersServiceImplement implements IUsersService{
     @PostConstruct
     public void adminlogin(){
         Users adminlogin = new Users();
-        adminlogin.setIdUser(1);
         adminlogin.setPassword("$2a$12$tsqtQLxDg/amsNdH64GSWenrfD7BBFqK4z/y4VjDESmwzPSQrtP1G");
         adminlogin.setadressUser("Av. Lima");
         adminlogin.setCardUser("1234567890123456");
