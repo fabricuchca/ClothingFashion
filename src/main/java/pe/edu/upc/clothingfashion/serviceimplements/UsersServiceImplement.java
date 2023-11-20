@@ -52,19 +52,4 @@ public class UsersServiceImplement implements IUsersService{
     public List<Users> list() {
         return uR.findAll();
     }
-    @PostConstruct
-    public void adminlogin(){
-        Users adminlogin = new Users();
-        adminlogin.setPassword("$2a$12$tsqtQLxDg/amsNdH64GSWenrfD7BBFqK4z/y4VjDESmwzPSQrtP1G");
-        adminlogin.setadressUser("Av. Lima");
-        adminlogin.setCardUser("1234567890123456");
-        adminlogin.setEnabled(true);
-        adminlogin.setBirthDate(LocalDate.now());
-        adminlogin.setLastNameUser("ADMIN");
-        adminlogin.setMail("admin@gmail.com");
-        adminlogin.setNameUser("admin");
-        adminlogin.setTelephoneUser("987637891");
-        adminlogin.setUsername("admin");
-        uR.save(adminlogin);
-    }
 }
